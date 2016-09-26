@@ -1,0 +1,28 @@
+{
+  "name": "electron-windows-notifications",
+  "version": "0.1.0",
+  "description": "Native Windows notifications for Electron using NodeRT",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatalystCode/electron-windows-notifications.git"
+  },
+  "keywords": [
+    "Windows",
+    "notifications",
+    "nodert",
+    "winrt"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CatalystCode/electron-windows-notifications/issues"
+  },
+  "homepage": "https://github.com/CatalystCode/electron-windows-notifications#readme",
+  "devDependencies": {
+    "standard": "^8.1.0"
+  }
+}
