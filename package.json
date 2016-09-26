@@ -4,7 +4,8 @@
   "description": "Native Windows notifications for Electron using NodeRT",
   "main": "./src/index.js",
   "scripts": {
-    "test": "standard \"./src/*.js\" && standard \"./test/*.js\" && mocha"
+    "lint": "standard \"./src/*.js\" && standard \"./test/*.js\"",
+    "test": "npm run lint && mocha"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "@nodert-win10/windows.data.xml.dom": "^0.2.3",
-    "@nodert-win10/windows.ui.notifications": "^0.2.3"
+    "@nodert-win10/windows.ui.notifications": "^0.2.3",
+    "is-electron-renderer": "^2.0.1"
   }
 }
