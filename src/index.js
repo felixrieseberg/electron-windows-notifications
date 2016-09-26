@@ -2,7 +2,7 @@ const { getIsWindows, getWindowsVersion } = require('./utils')
 const { noop, NoopClass } = require('./noops')
 const win = getWindowsVersion()
 
-let exports = {
+let exp = {
   Notification: require('./notification'),
   history: require('./history')
 }
@@ -15,4 +15,4 @@ if (!getIsWindows() || !(win === '10.0' || win === '8.1' || win === '8')) {
   })
 }
 
-module.exports = exports
+module.exports = exp
