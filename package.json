@@ -26,5 +26,9 @@
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
     "standard": "^8.1.0"
+  },
+  "dependencies": {
+    "@nodert-win10/windows.data.xml.dom": "^0.2.3",
+    "@nodert-win10/windows.ui.notifications": "^0.2.3"
   }
 }
