@@ -1,4 +1,6 @@
 const os = require('os')
+const electron = require('electron')
+const isRenderer = require('is-electron-renderer')
 
 const utils = {
   /**
@@ -7,7 +9,6 @@ const utils = {
    *
    * @returns {number} Major & minor of Windows (8.0, 8.1, 10)
    */
-
   getWindowsVersion (version = os.release()) {
     let match = version.match(/^(\d+).?(\d+).?(\*|\d+)$/)
 
@@ -32,6 +33,24 @@ const utils = {
    */
   getIsWindows (platform = os.platform()) {
     return platform === 'win32'
+  },
+
+  /**
+   * @returns {string} appUserModelId
+   */
+  getAppId () {
+    if (isRenderer) {
+      return electron.remote.getGlobal('appUserModelId')
+    } else {
+      return electron.getGlobal('appUserModelId')
+    }
+  },
+
+  /**
+   * @returns {boolean} Whether or not the app is running as Windows Store app
+   */
+  getIsCentennial () {
+    return process.windowsStore || false``
   }
 }
 
