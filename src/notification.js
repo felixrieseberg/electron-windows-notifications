@@ -11,8 +11,11 @@ class Notification extends EventEmitter {
    *
    * @param {object} options
    * @param {string} options.template
-   * @param {object} options.strings
-   * @param {object} [options.appId]
+   * @param {string[]} options.strings
+   * @param {Date} options.expirationTime
+   * @param {string} options.group
+   * @param {string} options.tag
+   * @param {string} [options.appId]
    *
    * @memberOf Notification
    */
@@ -31,6 +34,15 @@ class Notification extends EventEmitter {
     this.toast.on('activated', () => this.emit('activated', ...arguments))
     this.toast.on('dismissed', () => this.emit('dismissed', ...arguments))
     this.toast.on('failed', () => this.emit('failed', ...arguments))
+
+    if (options.expirationTime) this.toast.expirationTime = options.expirationTime
+    if (options.group) this.toast.group = options.group
+    if (options.tag) this.toast.tag = options.tag
+
+    // Not present: surpressPopup. Why? From Microsoft:
+    // Note Do not set this property to true in a toast sent to a Windows 8.x device.
+    // Doing so will cause a compiler error or a dropped notification.
+
     this.notifier = notifications.ToastNotificationManager.createToastNotifier(options.appId)
   }
 
