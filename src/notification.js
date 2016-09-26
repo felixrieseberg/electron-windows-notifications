@@ -30,7 +30,7 @@ class Notification extends EventEmitter {
     this.toast.on('activated', () => this.emit('activated', ...arguments))
     this.toast.on('dismissed', () => this.emit('dismissed', ...arguments))
     this.toast.on('failed', () => this.emit('failed', ...arguments))
-    this.notifier = notifications.ToastNotificationManager.createToastNotifier(appId)
+    this.notifier = notifications.ToastNotificationManager.createToastNotifier(options.appId)
   }
 
   show () {
