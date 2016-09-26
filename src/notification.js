@@ -1,5 +1,5 @@
-const xml = require('windows.data.xml.dom')
-const notifications = require('windows.ui.notifications')
+const xml = require('@nodert-win10/windows.data.xml.dom')
+const notifications = require('@nodert-win10/windows.ui.notifications')
 const EventEmitter = require('events')
 const util = require('util')
 

@@ -1,4 +1,4 @@
-const notifications = require('windows.ui.notifications')
+const notifications = require('@nodert-win10/windows.ui.notifications')
 const { getIsCentennial, getAppId } = require('./utils')
 
 const history = {
