@@ -50,7 +50,7 @@ const utils = {
    * @returns {boolean} Whether or not the app is running as Windows Store app
    */
   getIsCentennial () {
-    return process.windowsStore || false``
+    return process.windowsStore || false
   }
 }
 

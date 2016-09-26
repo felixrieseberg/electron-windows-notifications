@@ -12,6 +12,7 @@ class Notification extends EventEmitter {
    * @param {object} options
    * @param {string} options.template
    * @param {object} options.strings
+   * @param {object} [options.appId]
    *
    * @memberOf Notification
    */
@@ -20,8 +21,8 @@ class Notification extends EventEmitter {
 
     options.template = options.template || '' // todo: add default template
     options.strings = options.strings || []
+    options.appId = options.appId || getAppId()
 
-    let appId = getAppId()
     let formattedXml = util.format(options.template, ...options.strings)
     let xmlDocument = new xml.XmlDocument(formattedXml)
 
