@@ -45,9 +45,9 @@ class Notification extends EventEmitter {
     d(this.formattedXml)
 
     this.toast = new notifications.ToastNotification(xmlDocument)
-    this.toast.on('activated', () => this.emit('activated', ...arguments))
-    this.toast.on('dismissed', () => this.emit('dismissed', ...arguments))
-    this.toast.on('failed', () => this.emit('failed', ...arguments))
+    this.toast.on('activated', (..._args) => this.emit('activated', ..._args))
+    this.toast.on('dismissed', (..._args) => this.emit('dismissed', ..._args))
+    this.toast.on('failed', (..._args) => this.emit('failed', ..._args))
 
     if (options.expirationTime) this.toast.expirationTime = options.expirationTime
     if (options.group) this.toast.group = options.group
