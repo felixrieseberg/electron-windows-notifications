@@ -2,6 +2,7 @@ const xml = require('@nodert-win10/windows.data.xml.dom')
 const notifications = require('@nodert-win10/windows.ui.notifications')
 const EventEmitter = require('events')
 const util = require('util')
+const xmlEscape = require('xml-escape');
 
 const { getAppId } = require('./utils')
 
@@ -28,11 +29,14 @@ class Notification extends EventEmitter {
     options.strings = options.strings || []
     options.appId = options.appId || getAppId()
 
-    this.formattedXml = util.format(options.template, ...options.strings)
+    let strings = options.strings.map(v => xmlEscape(v))
+
+    this.formattedXml = util.format(options.template, ...strings)
     let xmlDocument = new xml.XmlDocument()
     xmlDocument.loadXml(this.formattedXml)
 
     d(`Creating new notification`)
+    d(this.formattedXml)
 
     this.toast = new notifications.ToastNotification(xmlDocument)
     this.toast.on('activated', () => this.emit('activated', ...arguments))
