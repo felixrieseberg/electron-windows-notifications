@@ -1,6 +1,4 @@
 const os = require('os')
-const electron = require('electron')
-const isRenderer = require('is-electron-renderer')
 
 const utils = {
   /**
@@ -39,6 +37,9 @@ const utils = {
    * @returns {string} appUserModelId
    */
   getAppId () {
+    const electron = require('electron')
+    const isRenderer = require('is-electron-renderer')
+
     if (isRenderer) {
       return electron.remote.getGlobal('appUserModelId')
     } else {

@@ -1,6 +1,8 @@
 const notifications = require('@nodert-win10/windows.ui.notifications')
 const { getIsCentennial, getAppId } = require('./utils')
 
+let d = require('debug-electron')('electron-windows-notifications:notification')
+
 const history = {
   /**
    * Removes all notifications from action center that were sent by another app
@@ -9,6 +11,8 @@ const history = {
    * @param {string} [appId=getAppId()]
    */
   clear (appId = getAppId()) {
+    d('Clearing all notifications')
+
     if (getIsCentennial()) {
       notifications.ToastNotificationManager.History.clear()
     } else {
@@ -29,6 +33,8 @@ const history = {
     options.group = options.group || ''
     options.appId = options.appId || getAppId()
 
+    d(`Removing notifications for ${options.group ? `group ${options.group} and` : ''} tag ${options.tag}`)
+
     if (getIsCentennial()) {
       notifications.ToastNotificationManager.History.remove(options.tag, options.group)
     } else {
@@ -48,11 +54,22 @@ const history = {
     options.group = options.group || ''
     options.appId = options.appId || getAppId()
 
+    d(`Removing notifications for group ${options.group}`)
+
     if (getIsCentennial()) {
       notifications.ToastNotificationManager.History.removeGroup(options.tag, options.group)
     } else {
       notifications.ToastNotificationManager.History.removeGroup(options.tag, options.group, options.appId)
     }
+  },
+
+  /**
+   * Overrides the logger for the history object
+   *
+   * @param {function} Replacement for `console.log`
+   */
+  setLogger (fn) {
+    d = fn
   }
 }
 

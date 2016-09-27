@@ -4,7 +4,7 @@ require('./shortcut')
 // Sample
 const appId = 'electron-windows-notifications'
 const path = require('path')
-const Notification = require('../../src/notification')
+const Notification = require('../src/notification')
 
 let imagePath = (`file:///${path.join(__dirname, 'images', 'bp.png').replace(/\\/g, '/')}`)
 let notification = new Notification({

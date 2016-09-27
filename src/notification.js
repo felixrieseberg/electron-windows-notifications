@@ -5,6 +5,8 @@ const util = require('util')
 
 const { getAppId } = require('./utils')
 
+let d = require('debug-electron')('electron-windows-notifications:notification')
+
 class Notification extends EventEmitter {
   /**
    * Creates an instance of Notification.
@@ -30,6 +32,9 @@ class Notification extends EventEmitter {
     let xmlDocument = new xml.XmlDocument()
     xmlDocument.loadXml(formattedXml)
 
+    d(`Creating new notification`)
+    d(formattedXml)
+
     this.toast = new notifications.ToastNotification(xmlDocument)
     this.toast.on('activated', () => this.emit('activated', ...arguments))
     this.toast.on('dismissed', () => this.emit('dismissed', ...arguments))
@@ -46,12 +51,34 @@ class Notification extends EventEmitter {
     this.notifier = notifications.ToastNotificationManager.createToastNotifier(options.appId)
   }
 
+  /**
+   * Shows the toast notification
+   *
+   * @memberOf Notification
+   */
   show () {
     if (this.toast && this.notifier) this.notifier.show(this.toast)
   }
 
+  /**
+   * Hides the toast notification
+   *
+   * @memberOf Notification
+   */
   hide () {
     if (this.toast && this.notifier) this.notifier.hide(this.toast)
+  }
+
+  /**
+   * Overrides the logger for all instances of Notification
+   *
+   * @static
+   * @param {function} Replacement for `console.log`
+   *
+   * @memberOf Notification
+   */
+  static setLogger (fn) {
+    d = fn
   }
 }
 
