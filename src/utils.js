@@ -47,7 +47,6 @@ const utils = {
         return electron.getGlobal('appUserModelId')
       }
     } catch (e) {
-      d(`Getting appUserModelId failed: Electron not available?`)
       return ''
     }
   },

@@ -2,7 +2,7 @@ const xml = require('@nodert-win10/windows.data.xml.dom')
 const notifications = require('@nodert-win10/windows.ui.notifications')
 const EventEmitter = require('events')
 const util = require('util')
-const xmlEscape = require('xml-escape');
+const xmlEscape = require('xml-escape')
 
 const { getAppId } = require('./utils')
 
