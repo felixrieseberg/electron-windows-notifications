@@ -9,7 +9,7 @@ npm install --save electron-windows-notifications
 
 The constructor for the `Notification` class accepts an options `object` with the following properties:
 
- * `string` template - The XML template for the notification.
+ * `string` template - The XML template for the notification. You can also call `new Template()` with few properties to customize your own XML template based on the default. See example: [template.js](samples/template.js)
  * `string[]` strings - An array of strings to be used in your template. XML escaping is applied to all strings.
  * `Date` expirationTime - Time after which a toast notification should not be displayed.
  * `string` group - Group identifier for the notification.
