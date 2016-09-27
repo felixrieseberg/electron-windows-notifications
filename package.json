@@ -29,8 +29,10 @@
     "standard": "^8.1.0"
   },
   "dependencies": {
-    "@nodert-win10/windows.data.xml.dom": "^0.2.3",
-    "@nodert-win10/windows.ui.notifications": "^0.2.3",
     "is-electron-renderer": "^2.0.1"
+  },
+  "optionalDependencies" : {
+	"@nodert-win10/windows.data.xml.dom": "^0.2.5",
+    "@nodert-win10/windows.ui.notifications": "^0.2.5"
   }
 }
