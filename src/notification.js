@@ -8,6 +8,12 @@ const { getAppId } = require('./utils')
 
 let d = require('debug-electron')('electron-windows-notifications:notification')
 
+/**
+ * A notification similar to the native Windows ToastNotification.
+ *
+ * @class Notification
+ * @extends {EventEmitter}
+ */
 class Notification extends EventEmitter {
   /**
    * Creates an instance of Notification.

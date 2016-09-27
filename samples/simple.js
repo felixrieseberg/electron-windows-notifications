@@ -11,5 +11,5 @@ let notification = new Notification({
     strings: ['Hi!']
 })
 
-notification.on('activated', () => console.log('Actived!'))
+notification.on('activated', () => console.log('Activated!'))
 notification.show()
