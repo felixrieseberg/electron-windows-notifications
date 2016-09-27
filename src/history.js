@@ -14,9 +14,9 @@ const history = {
     d('Clearing all notifications')
 
     if (getIsCentennial()) {
-      notifications.ToastNotificationManager.History.clear()
+      notifications.ToastNotificationManager.history.clear()
     } else {
-      notifications.ToastNotificationManager.History.clear(appId)
+      notifications.ToastNotificationManager.history.clear(appId)
     }
   },
 
@@ -36,9 +36,9 @@ const history = {
     d(`Removing notifications for ${options.group ? `group ${options.group} and` : ''} tag ${options.tag}`)
 
     if (getIsCentennial()) {
-      notifications.ToastNotificationManager.History.remove(options.tag, options.group)
+      notifications.ToastNotificationManager.history.remove(options.tag, options.group)
     } else {
-      notifications.ToastNotificationManager.History.remove(options.tag, options.group, options.appId)
+      notifications.ToastNotificationManager.history.remove(options.tag, options.group, options.appId)
     }
   },
 
@@ -57,9 +57,9 @@ const history = {
     d(`Removing notifications for group ${options.group}`)
 
     if (getIsCentennial()) {
-      notifications.ToastNotificationManager.History.removeGroup(options.tag, options.group)
+      notifications.ToastNotificationManager.history.removeGroup(options.tag, options.group)
     } else {
-      notifications.ToastNotificationManager.History.removeGroup(options.tag, options.group, options.appId)
+      notifications.ToastNotificationManager.history.removeGroup(options.tag, options.group, options.appId)
     }
   },
 
