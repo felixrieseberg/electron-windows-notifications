@@ -37,13 +37,18 @@ const utils = {
    * @returns {string} appUserModelId
    */
   getAppId () {
-    const electron = require('electron')
-    const isRenderer = require('is-electron-renderer')
+    try {
+      const electron = require('electron')
+      const isRenderer = require('is-electron-renderer')
 
-    if (isRenderer) {
-      return electron.remote.getGlobal('appUserModelId')
-    } else {
-      return electron.getGlobal('appUserModelId')
+      if (isRenderer) {
+        return electron.remote.getGlobal('appUserModelId')
+      } else {
+        return electron.getGlobal('appUserModelId')
+      }
+    } catch (e) {
+      d(`Getting appUserModelId failed: Electron not available?`)
+      return ''
     }
   },
 
