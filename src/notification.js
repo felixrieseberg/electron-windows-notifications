@@ -28,12 +28,11 @@ class Notification extends EventEmitter {
     options.strings = options.strings || []
     options.appId = options.appId || getAppId()
 
-    let formattedXml = util.format(options.template, ...options.strings)
+    this.formattedXml = util.format(options.template, ...options.strings)
     let xmlDocument = new xml.XmlDocument()
-    xmlDocument.loadXml(formattedXml)
+    xmlDocument.loadXml(this.formattedXml)
 
     d(`Creating new notification`)
-    d(formattedXml)
 
     this.toast = new notifications.ToastNotification(xmlDocument)
     this.toast.on('activated', () => this.emit('activated', ...arguments))
