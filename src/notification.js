@@ -1,7 +1,5 @@
 const xml = require('@nodert-win10/windows.data.xml.dom')
 const notifications = require('@nodert-win10/windows.ui.notifications')
-const { getWindowsVersion } = require('./utils')
-const win = getWindowsVersion()
 const EventEmitter = require('events')
 const util = require('util')
 const xmlEscape = require('xml-escape')
@@ -47,7 +45,7 @@ class Notification extends EventEmitter {
     d(this.formattedXml)
 
     this.toast = new notifications.ToastNotification(xmlDocument)
-    this.toast.on('activated', (t,e) => this.emit('activated', t, new notifications.ToastActivatedEventArgs(e)))
+    this.toast.on('activated', (t, e) => this.emit('activated', t, new notifications.ToastActivatedEventArgs(e)))
     this.toast.on('dismissed', (..._args) => this.emit('dismissed', ..._args))
     this.toast.on('failed', (..._args) => this.emit('failed', ..._args))
 
