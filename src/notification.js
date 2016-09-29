@@ -45,7 +45,8 @@ class Notification extends EventEmitter {
     d(this.formattedXml)
 
     this.toast = new notifications.ToastNotification(xmlDocument)
-    this.toast.on('activated', (t, e) => this.emit('activated', t, new notifications.ToastActivatedEventArgs(e)))
+	// The event args object for the activated event is returned by the UWP API as a basic Object type, so we cast it to ToastActivatedEventArgs
+    this.toast.on('activated', (t, e) => this.emit('activated', t, notifications.ToastActivatedEventArgs.castFrom(e)))
     this.toast.on('dismissed', (..._args) => this.emit('dismissed', ..._args))
     this.toast.on('failed', (..._args) => this.emit('failed', ..._args))
 
