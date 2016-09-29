@@ -18,7 +18,8 @@ class NoopClass extends EventEmitter {
     noop()
   }
 
-  static setLogger () {}
+  static setLogger () { return noop() }
+  static getXML () { return noop() }
 }
 
 module.exports = { noop, NoopClass }

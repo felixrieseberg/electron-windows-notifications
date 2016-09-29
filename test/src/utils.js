@@ -22,6 +22,12 @@ describe('Utils', () => {
     version.should.be.equal('7.0')
   })
 
+  it('getWindowsVersion returns version as is for non-matching version', () => {
+    const nonMatch = '4.7.4-ph+'
+    let version = getWindowsVersion(nonMatch)
+    version.should.be.equal(nonMatch)
+  })
+
   it('getIsWindows returns true for Windows', () => {
     let platform = getIsWindows('win32')
     platform.should.be.equal(true)
@@ -29,6 +35,11 @@ describe('Utils', () => {
 
   it('getIsWindows returns false for macOS', () => {
     let platform = getIsWindows('darwin')
+    platform.should.be.equal(false)
+  })
+
+  it('getIsWindows returns false for linux', () => {
+    let platform = getIsWindows('linux')
     platform.should.be.equal(false)
   })
 })
