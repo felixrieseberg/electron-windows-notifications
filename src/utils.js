@@ -10,6 +10,10 @@ const utils = {
   getWindowsVersion (version = os.release()) {
     let match = version.match(/^(\d+).?(\d+).?(\*|\d+)$/)
 
+    if (match === null) {
+      return version
+    }
+
     // We got major, minor
     if (match.length > 2 && match[1] === '6' && match[2] === '1') {
       return '7.0'
