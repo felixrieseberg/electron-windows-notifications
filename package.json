@@ -17,6 +17,7 @@
     "nodert",
     "winrt"
   ],
+  "os": ["win32"],
   "author": "",
   "license": "MIT",
   "bugs": {
