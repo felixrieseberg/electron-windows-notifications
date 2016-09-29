@@ -24,12 +24,14 @@ if (!getIsWindows() || !(win === '10.0' || win === '8.1' || win === '8')) {
       removeGroup: noop,
       setLogger: noop
     },
+    Template: NoopClass,
     setLogger: noop
   }
 } else {
   exp = {
     Notification: require('./notification'),
     history: require('./history'),
+    Template: require('./template'),
     setLogger
   }
 }

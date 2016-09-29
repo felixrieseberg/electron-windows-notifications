@@ -1,5 +1,6 @@
 var path = require('path');
 const Notification = require('electron-windows-notifications').Notification;
+const Template = require('electron-windows-notifications').Template;
 
 var nts = require('@nodert-win10/windows.ui.notifications');
 
@@ -38,11 +39,14 @@ var strings = ['Hi!']
 
 function doNotify(evt) {
   if (evt.srcElement.id == "basic") {
-    //new Notification(options[0].title, options[0]);
 	let notification = new Notification({
 		appId: appId,
-		template: template,
-		strings: []
+		template: new Template({
+      templateText: '<text>%s</text>',
+      templateImage: '<image id="1" src="%s"/><text>This is a simple toast notification example</text>',
+      templateActions: '<actions><action content="check" arguments="check" /><action content="cancel" arguments="cancel" /></actions>'
+    }).getXML(),
+		strings: ['Hi from Electron', iconPath]
 		})
 
 	notification.on('activated', function(t,e) {
