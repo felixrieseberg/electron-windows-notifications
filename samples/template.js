@@ -24,7 +24,7 @@ let notificationImage = new Notification({
     	templateText: '<text id="1">%s</text>',
     	templateImage: '<image id="1" src="%s"/>',
     	templateActions: '<actions><action content="check" arguments="check" /></actions>'
-    }).getXML(),`,
+    }).getXML(),
     strings: [imagePath, 'Hi!']
 })
 
