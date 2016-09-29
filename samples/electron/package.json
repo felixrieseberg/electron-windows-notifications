@@ -8,7 +8,7 @@
     "electron-rebuild": "^1.2.1"
   },
   "dependencies": {
-    "electron-windows-notifications": "git://github.com/CatalystCode/electron-windows-notifications.git#electron-sample"
+    "electron-windows-notifications": "^0.4.1"
   },
   "scripts": {
     "start": "electron ."
