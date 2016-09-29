@@ -1,6 +1,6 @@
 {
   "name": "electron-windows-notifications",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "Native Windows notifications for Electron using NodeRT",
   "main": "./src/index.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "nodert",
     "winrt"
   ],
-  "os": ["win32"],
+  "os": [
+    "win32"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
