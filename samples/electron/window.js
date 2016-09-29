@@ -2,7 +2,7 @@ var path = require('path')
 const Notification = require('electron-windows-notifications').Notification
 const Template = require('electron-windows-notifications').Template
 
-const iconPath = path.join(__dirname, 'icon.png')
+const iconPath = path.join(__dirname, '../images/bp.png')
 const appId = 'electron-windows-notifications-sample'
 
 function doNotify(evt) {
