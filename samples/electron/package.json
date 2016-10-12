@@ -1,16 +1,24 @@
 {
-  "name": "notification-demo",
+  "name": "notifications",
   "version": "1.1.0",
-  "main": "main.js",
+  "main": "app/main.js",
+  "author": {
+    "name": "Felix Rieseberg",
+    "email": "felix@felixrieseberg.com"
+  },
   "description": "A sample electron app for the electron-windows-notifications module",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
-    "electron-rebuild": "^1.2.1"
-  },
-  "dependencies": {
-    "electron-windows-notifications": "^0.4.1"
+    "electron-rebuild": "^1.2.1",
+    "electron-builder": "^7.11.4"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir --win",
+    "dist": "build --win"
+  },
+  "build": {
+    "appId": "com.electron.sample",
+    "asar": false
   }
 }

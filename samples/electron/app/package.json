@@ -1,0 +1,13 @@
+{
+  "name": "notifications",
+  "version": "1.0.0",
+  "author": {
+    "name": "Felix Rieseberg",
+    "email": "felix@felixrieseberg.com"
+  },
+  "main": "main.js",
+  "description": "A sample electron app for the electron-windows-notifications module",
+  "dependencies": {
+    "electron-windows-notifications": "1.0.0-beta.17"
+  }
+}

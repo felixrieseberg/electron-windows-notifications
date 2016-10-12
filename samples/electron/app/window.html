@@ -5,25 +5,33 @@
 	</head>
 	<body>
 		<h1>electron-windows-notifications Sample</h1>
-		<p>This sample demonstrates the use of the electron-windows-notifications module. 
+		<p>This sample demonstrates the use of the electron-windows-notifications module.
 		   Use the button below to create various different notifications.
-		   Demo is based on this great sample: 
-		   <a href="https://github.com/hokein/electron-sample-apps/tree/master/notifications">https://github.com/hokein/electron-sample-apps/tree/master/notifications</a></p>
+		   Demo is based on this great sample:
+		   <a href="https://github.com/hokein/electron-sample-apps/tree/master/notifications">https://github.com/hokein/electron-sample-apps/tree/master/notifications</a>
+		</p>
 		<div class="sample">
 			<button id="basic">Basic Notification</button>
-			<span>Basic notification: title only. </span>
+			<span>Basic notification: title only.</span>
 		</div>
 		<br/>
 		<div class="sample">
 			<button id="image">Image Notification</button>
-			<span>Image notification: title, text & image. </span>
+			<span>Image notification: title, text & image.</span>
 		</div>
 		<br/>
 		<div class="sample">
 			<button id="actions">Actions Notification</button>
-			<span>Actions notification: text, image and action buttons </span>
+			<span>Actions notification: text, image and action buttons.</span>
 		</div>
 		<br/>
+		<div class="sample">
+			<button id="tile">Tile Notification</button>
+			<span>Tile notification: update the app's tile.</span>
+		</div>
+		<br/>
+
+
 		<div id="text"></div>
 
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
