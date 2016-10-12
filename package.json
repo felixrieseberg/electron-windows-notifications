@@ -1,6 +1,6 @@
 {
   "name": "electron-windows-notifications",
-  "version": "1.0.0",
+  "version": "1.1.0-beta.4",
   "description": "Native Windows notifications for Electron using NodeRT",
   "main": "./src/index.js",
   "scripts": {
@@ -31,11 +31,14 @@
   "dependencies": {
     "debug-electron": "0.0.1",
     "is-electron-renderer": "^2.0.1",
+    "node-uuid": "^1.4.7",
     "xml-escape": "^1.1.0"
   },
   "optionalDependencies": {
+    "@nodert-win10/windows.applicationmodel": "^0.2.9",
     "@nodert-win10/windows.data.xml.dom": "^0.2.9",
+    "@nodert-win10/windows.foundation": "^0.2.91",
     "@nodert-win10/windows.ui.notifications": "^0.2.9",
-    "@nodert-win10/windows.applicationmodel": "^0.2.9"
+    "@nodert-win10/windows.ui.startscreen": "^0.2.91"
   }
 }

@@ -5,6 +5,7 @@ const win = getIsWindows() ? getWindowsVersion() : null
 let _exports = {
   TileNotification: require('./tile-notification'),
   ToastNotification: require('./toast-notification'),
+  SecondaryTile: require('./secondary-tile'),
   TileUpdater: require('./tile-updater'),
   history: require('./history'),
   Template: require('./template'),
@@ -23,6 +24,7 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
   _exports = {
     ToastNotification: NoopClass,
     TileNotification: NoopClass,
+    SecondaryTile: NoopClass,
     history: {
       remove: noop,
       clear: noop,

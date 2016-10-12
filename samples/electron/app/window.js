@@ -2,7 +2,7 @@ const path = require('path')
 const {remote} = require('electron')
 const ElectronWindowsNotifications = require('electron-windows-notifications');
 
-const {ToastNotification, TileNotification, Template} = ElectronWindowsNotifications
+const {ToastNotification, TileNotification, Template, SecondaryTile} = ElectronWindowsNotifications
 
 const iconPath = path.join(__dirname, '../images/bp.png')
 const appId = 'electron-windows-notifications-sample'
@@ -76,6 +76,19 @@ function sendTile() {
   tile.show();
 }
 
+function createTile() {
+  const secondaryTile = new SecondaryTile({
+    tileId: 'hello',
+    displayName: 'hello',
+    arguments: 'hello',
+    logo: 'ms-appx:///assets/SampleAppx.150x150.png'
+  })
+
+  // Will always return false - we're missing XAMl to actually
+  // display the flyout :(
+  secondaryTile.requestCreate()
+}
+
 ElectronWindowsNotifications.setLogger(console.log)
 remote.getCurrentWebContents().toggleDevTools()
 
@@ -83,5 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('basic').addEventListener('click', sendNotification);
   document.getElementById('image').addEventListener('click', sendNotification);
   document.getElementById('actions').addEventListener('click', sendNotification);
-  document.getElementById('tile').addEventListener('click', sendTile);
+  document.getElementById('tile-notification').addEventListener('click', sendTile);
+  document.getElementById('tile-pin').addEventListener('click', createTile);
 })
