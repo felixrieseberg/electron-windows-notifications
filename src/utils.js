@@ -1,5 +1,7 @@
 const os = require('os')
 
+let d = require('debug-electron')('electron-windows-notifications:tile-notification')
+
 const utils = {
   /**
    * Gets the version of Windows
@@ -41,6 +43,21 @@ const utils = {
    * @returns {string} appUserModelId
    */
   getAppId () {
+    if (process.windowsStore) {
+      try {
+        const appModel = require('@nodert-win10/windows.applicationmodel')
+
+        // This is a horrible and sad hack that hopefully won't be always neccessary
+        const familyName = appModel.Package.current.id.familyName
+        const name = appModel.Package.current.id.name
+
+        return `${familyName}!${name}`
+      } catch (e) {
+        console.log('Tried to get appUserModelId for UWP app, failed with error:', e)
+        return null
+      }
+    }
+
     try {
       const electron = require('electron')
       const isRenderer = require('is-electron-renderer')
@@ -51,7 +68,7 @@ const utils = {
         return electron.getGlobal('appUserModelId')
       }
     } catch (e) {
-      return ''
+      return null
     }
   },
 
@@ -60,6 +77,22 @@ const utils = {
    */
   getIsCentennial () {
     return process.windowsStore || false
+  },
+
+  /**
+   * Internal logger
+   */
+  log () {
+    return d(...arguments)
+  },
+
+  /**
+   * Override the internal logging function
+   *
+   * @param {function} fn
+   */
+  setLogger (fn) {
+    d = fn
   }
 }
 

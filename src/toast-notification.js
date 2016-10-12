@@ -4,9 +4,7 @@ const EventEmitter = require('events')
 const util = require('util')
 const xmlEscape = require('xml-escape')
 
-const { getAppId } = require('./utils')
-
-let d = require('debug-electron')('electron-windows-notifications:notification')
+const { getAppId, log } = require('./utils')
 
 /**
  * A notification similar to the native Windows ToastNotification.
@@ -14,9 +12,9 @@ let d = require('debug-electron')('electron-windows-notifications:notification')
  * @class Notification
  * @extends {EventEmitter}
  */
-class Notification extends EventEmitter {
+class ToastNotification extends EventEmitter {
   /**
-   * Creates an instance of Notification.
+   * Creates an instance of ToastNotification.
    *
    * @param {object} options
    * @param {string} options.template
@@ -25,13 +23,11 @@ class Notification extends EventEmitter {
    * @param {string} options.group
    * @param {string} options.tag
    * @param {string} [options.appId]
-   *
-   * @memberOf Notification
    */
   constructor (options = {}) {
     super(...arguments)
 
-    options.template = options.template || '' // todo: add default template
+    options.template = options.template || ''
     options.strings = options.strings || []
     options.appId = options.appId || getAppId()
 
@@ -41,11 +37,11 @@ class Notification extends EventEmitter {
     let xmlDocument = new xml.XmlDocument()
     xmlDocument.loadXml(this.formattedXml)
 
-    d(`Creating new notification`)
-    d(this.formattedXml)
+    log(`Creating new toast notification`)
+    log(this.formattedXml)
 
     this.toast = new notifications.ToastNotification(xmlDocument)
-	// The event args object for the activated event is returned by the UWP API as a basic Object type, so we cast it to ToastActivatedEventArgs
+    // The event args object for the activated event is returned by the UWP API as a basic Object type, so we cast it to ToastActivatedEventArgs
     this.toast.on('activated', (t, e) => this.emit('activated', t, notifications.ToastActivatedEventArgs.castFrom(e)))
     this.toast.on('dismissed', (..._args) => this.emit('dismissed', ..._args))
     this.toast.on('failed', (..._args) => this.emit('failed', ..._args))
@@ -55,7 +51,7 @@ class Notification extends EventEmitter {
     if (options.tag) this.toast.tag = options.tag
 
     // Not present: surpressPopup. Why? From Microsoft:
-    // Note Do not set this property to true in a toast sent to a Windows 8.x device.
+    // Do not set this property to true in a toast sent to a Windows 8.x device.
     // Doing so will cause a compiler error or a dropped notification.
 
     this.notifier = notifications.ToastNotificationManager.createToastNotifier(options.appId)
@@ -78,18 +74,6 @@ class Notification extends EventEmitter {
   hide () {
     if (this.toast && this.notifier) this.notifier.hide(this.toast)
   }
-
-  /**
-   * Overrides the logger for all instances of Notification
-   *
-   * @static
-   * @param {function} Replacement for `console.log`
-   *
-   * @memberOf Notification
-   */
-  static setLogger (fn) {
-    d = fn
-  }
 }
 
-module.exports = Notification
+module.exports = ToastNotification
