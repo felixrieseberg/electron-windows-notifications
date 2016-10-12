@@ -35,6 +35,7 @@
   },
   "optionalDependencies": {
     "@nodert-win10/windows.data.xml.dom": "^0.2.9",
-    "@nodert-win10/windows.ui.notifications": "^0.2.9"
+    "@nodert-win10/windows.ui.notifications": "^0.2.9",
+    "@nodert-win10/windows.applicationmodel": "^0.2.9"
   }
 }
