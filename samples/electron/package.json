@@ -13,6 +13,7 @@
     "electron-builder": "^7.11.4"
   },
   "scripts": {
+    "install" : "npm install & cd app & npm install",
     "start": "electron .",
     "pack": "build --dir --win",
     "dist": "build --win"
@@ -20,5 +21,10 @@
   "build": {
     "appId": "com.electron.sample",
     "asar": false
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatalystCode/electron-windows-notifications.git"
   }
 }

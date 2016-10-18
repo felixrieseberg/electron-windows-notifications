@@ -3,12 +3,16 @@
 A sample app using the electron-windows-notifications module.
 Sample is based on: https://github.com/hokein/electron-sample-apps/tree/master/notifications
 
-Install & run:
+Install by running the following set of commands:
 
 ```
 cd samples\electron
 npm install
-node_modules\.bin\electron-rebuild -w @nodert-win10/windows.ui.notifications
-node_modules\.bin\electron-rebuild -w @nodert-win10/windows.data.xml.dom
+.\node_modules\.bin\electron-rebuild -m .\app\node_modules
+```
+
+Run the sample using:
+
+```
 npm start
 ```
