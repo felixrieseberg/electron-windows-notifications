@@ -4,9 +4,9 @@ const ElectronWindowsNotifications = require('electron-windows-notifications');
 
 const {ToastNotification, TileNotification, Template, SecondaryTile} = ElectronWindowsNotifications
 
-const iconPath = path.join(__dirname, '../images/bp.png')
+const iconPath = path.join(__dirname, '../../images/bp.png')
 const appId = 'electron-windows-notifications-sample'
-const textNode = document.querySelector('#text')
+const textNode = $("#text")
 
 function sendNotification(evt) {
   let template
@@ -33,21 +33,19 @@ function sendNotification(evt) {
 	  strings = ['Hi from Electron', iconPath]
   }
 
-  console.log(template.getXML())
-
   // create the notification object
   let notification = new ToastNotification({
 		appId: process.windowsStore ? undefined : appId,
 		template: template.getXML(),
 		strings: strings
   })
-
+  
   // register to notification events
-  notification.on('failed', () => textNode.innerHTML('Notification failed!'))
-  notification.on('dismissed', () => textNode.innerHTML('Notification dismissed!'))
+  notification.on('failed', () => textNode.text('Notification failed!'))
+  notification.on('dismissed', () => textNode.text('Notification dismissed!'))
 
   // information about the chosen action is provided inside the "arguments" object
-  notification.on('activated', (t, e) => textNode.innerHTML(`You've clicked ${e.arguments}!`))
+  notification.on('activated', (t, e) => textNode.text(`You've clicked ${e.arguments}!`))
 
   // show notification
   notification.show()
