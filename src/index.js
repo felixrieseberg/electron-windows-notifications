@@ -2,15 +2,7 @@ const { getIsWindows, getWindowsVersion, setLogger } = require('./utils')
 const { noop, NoopClass } = require('./noops')
 const win = getIsWindows() ? getWindowsVersion() : null
 
-let _exports = {
-  TileNotification: require('./tile-notification'),
-  ToastNotification: require('./toast-notification'),
-  SecondaryTile: require('./secondary-tile'),
-  TileUpdater: require('./tile-updater'),
-  history: require('./history'),
-  Template: require('./template'),
-  setLogger
-}
+let _exports;
 
 /**
  * Overrides the logger on all methods and classes.
@@ -33,6 +25,16 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
     },
     Template: NoopClass,
     setLogger: noop
+  }
+} else {
+  _exports = {
+    ToastNotification: require('./toast-notification'),
+    TileNotification: require('./tile-notification'),
+    SecondaryTile: require('./secondary-tile'),
+    TileUpdater: require('./tile-updater'),
+    history: require('./history'),
+    Template: require('./template'),
+    setLogger
   }
 }
 
