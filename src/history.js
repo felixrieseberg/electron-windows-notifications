@@ -54,10 +54,16 @@ const history = {
 
     log(`Removing notifications for group ${options.group}`)
 
-    if (getIsCentennial()) {
-      notifications.ToastNotificationManager.history.removeGroup(options.group)
-    } else {
-      notifications.ToastNotificationManager.history.removeGroup(options.group, options.appId)
+    try {
+      if (getIsCentennial()) {
+        notifications.ToastNotificationManager.history.removeGroup(options.group)
+      } else {
+        notifications.ToastNotificationManager.history.removeGroup(options.group, options.appId)
+      }
+
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 }
