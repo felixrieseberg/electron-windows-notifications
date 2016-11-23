@@ -1,6 +1,6 @@
 const StartScreen = require('@nodert-win10/windows.ui.startscreen')
 const Foundation = require('@nodert-win10/windows.foundation')
-const uuid = require('node-uuid')
+const uuid = require('uuid')
 
 class SecondaryTile {
   /**
