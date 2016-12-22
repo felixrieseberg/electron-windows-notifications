@@ -1,6 +1,6 @@
 const os = require('os')
 
-let d = require('debug-electron')('electron-windows-notifications:tile-notification')
+let d = require('debug')('electron-windows-notifications:tile-notification')
 
 const utils = {
   /**
