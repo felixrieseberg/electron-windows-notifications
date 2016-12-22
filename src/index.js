@@ -2,7 +2,7 @@ const { getIsWindows, getWindowsVersion, setLogger } = require('./utils')
 const { noop, NoopClass } = require('./noops')
 const win = getIsWindows() ? getWindowsVersion() : null
 
-let _exports;
+let _exports
 
 /**
  * Overrides the logger on all methods and classes.

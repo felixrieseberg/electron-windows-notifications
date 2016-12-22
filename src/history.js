@@ -61,9 +61,9 @@ const history = {
         notifications.ToastNotificationManager.history.removeGroup(options.group, options.appId)
       }
 
-      return true;
+      return true
     } catch (e) {
-      return false;
+      return false
     }
   }
 }
