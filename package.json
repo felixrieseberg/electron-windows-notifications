@@ -1,6 +1,6 @@
 {
   "name": "electron-windows-notifications",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Native Windows notifications for Electron using NodeRT",
   "main": "./src/index.js",
   "scripts": {
