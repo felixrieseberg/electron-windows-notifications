@@ -8,6 +8,8 @@ npm install --save electron-windows-notifications
 ### Usage
 For more samples, check out the `samples` folder.
 
+> :memo: Want to respond to interactive notifications (with input fields, for instance)? You can send them with this module - and respond to them with [electron-windows-interactive-notifications](https://github.com/felixrieseberg/electron-windows-interactive-notifications)!
+
 #### ToastNotification
 The constructor for the `ToastNotification` class accepts an options `object` with the following properties:
 
