@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/felixrireseberg/electron-windows-notifications.git"
+    "url": "git+https://github.com/felixrieseberg/electron-windows-notifications.git"
   },
   "keywords": [
     "Windows",
@@ -20,9 +20,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/felixrireseberg/electron-windows-notifications/issues"
+    "url": "https://github.com/felixrieseberg/electron-windows-notifications/issues"
   },
-  "homepage": "https://github.com/felixrireseberg/electron-windows-notifications#readme",
+  "homepage": "https://github.com/felixrieseberg/electron-windows-notifications#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
