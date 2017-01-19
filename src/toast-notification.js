@@ -54,9 +54,9 @@ class ToastNotification extends EventEmitter {
     // Do not set this property to true in a toast sent to a Windows 8.x device.
     // Doing so will cause a compiler error or a dropped notification.
 
-    this.notifier = getIsCentennial() ?
-      notifications.ToastNotificationManager.createToastNotifier() :
-      notifications.ToastNotificationManager.createToastNotifier(options.appId)
+    this.notifier = getIsCentennial()
+      ? notifications.ToastNotificationManager.createToastNotifier()
+      : notifications.ToastNotificationManager.createToastNotifier(options.appId)
   }
 
   /**
