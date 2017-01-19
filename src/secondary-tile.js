@@ -1,6 +1,7 @@
-const StartScreen = require('@nodert-win10/windows.ui.startscreen')
-const Foundation = require('@nodert-win10/windows.foundation')
 const uuid = require('uuid')
+
+let StartScreen = null
+let Foundation = null
 
 class SecondaryTile {
   /**
@@ -29,6 +30,9 @@ class SecondaryTile {
    * @memberOf SecondaryTile
    */
   constructor (options = {}) {
+    StartScreen = StartScreen || require('@nodert-win10/windows.ui.startscreen')
+    Foundation = Foundation || require('@nodert-win10/windows.foundation')
+
     const tileId = this._validateTileId(options._validateTileId)
     const displayName = options.displayName || ''
     const tileArguments = options.arguments || ''
