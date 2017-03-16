@@ -59,7 +59,7 @@ class SecondaryTile {
 
   requestCreate () {
     return new Promise((resolve, reject) => {
-      if (!this.secondaryTile) return reject('SecondaryTile not created')
+      if (!this.secondaryTile) return reject(new Error('SecondaryTile not created'))
 
       this.secondaryTile.requestCreateAsync((err, res) => {
         if (err) return reject(err)

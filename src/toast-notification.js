@@ -74,7 +74,9 @@ class ToastNotification extends EventEmitter {
    * @memberOf Notification
    */
   hide () {
-    if (this.toast && this.notifier) this.notifier.hide(this.toast)
+    if (this.toast && this.notifier) {
+      this.notifier.hide(this.toast)
+    }
   }
 }
 
