@@ -60,12 +60,39 @@ class ToastNotification extends EventEmitter {
   }
 
   /**
-   * Shows the toast notification
+   * Shows the toast notification. This will first check the static property `setting`
+   * on the toast notifier to ensure that the notification can actually be sent.
    *
    * @memberOf Notification
    */
   show () {
-    if (this.toast && this.notifier) this.notifier.show(this.toast)
+    if (this.toast && this.notifier) {
+      // But first, we check if we get to show one
+      switch (this.notifier.setting) {
+        case 0:
+          // Everything is alright, let's show it
+          this.notifier.show(this.toast)
+          break
+        case 1:
+          // DisabledByManifest
+          this.emit('failed', new Error('Notifications are disabled by app manifest.'))
+          break
+        case 2:
+          // DisabledByGroupPolicy
+          this.emit('failed', new Error('Notifications are disabled by Windows group policy.'))
+          break
+        case 3:
+          // DisabledForUser
+          this.emit('failed', new Error('Notifications are disabled for this user (system-wide).'))
+          break
+        case 4:
+          // DisabledForApplication
+          this.emit('failed', new Error('Notifications are disabled for this app only (in Windows settings).'))
+          break
+        default:
+          this.notifier.show(this.toast)
+      }
+    }
   }
 
   /**
