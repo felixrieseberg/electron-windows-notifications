@@ -45,7 +45,7 @@ class ToastNotification extends EventEmitter {
     this.toast.on('activated', (t, e) => this.emit('activated', t, notifications.ToastActivatedEventArgs.castFrom(e)))
     this.toast.on('dismissed', (..._args) => this.emit('dismissed', ..._args))
 
-    // Temporarily disabled
+    // Temporarily disabled due to a bug with Node 7
     // this.toast.on('failed', (..._args) => this.emit('failed', ..._args))
 
     if (options.expirationTime) this.toast.expirationTime = options.expirationTime
