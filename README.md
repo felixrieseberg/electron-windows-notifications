@@ -10,7 +10,7 @@ For more samples, check out the `samples` folder.
 
 > :memo: Want to respond to interactive notifications (with input fields, for instance)? You can send them with this module - and respond to them with [electron-windows-interactive-notifications](https://github.com/felixrieseberg/electron-windows-interactive-notifications)!
 
-> :memo: Want to check if _you should send a notification?_, accounting for the user notification state and quiet hours? Check out [windows-quiet-hours](https://github.com/felixrieseberg/windows-quiet-hours) and [windows-notification-state](https://github.com/felixrieseberg/windows-notification-state).
+> :memo: Want to check if _you should send a notification?_, accounting for the user notification state and quiet hours? Check out [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
 #### ToastNotification
 The constructor for the `ToastNotification` class accepts an options `object` with the following properties:
