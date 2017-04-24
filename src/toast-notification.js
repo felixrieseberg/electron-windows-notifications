@@ -70,29 +70,8 @@ class ToastNotification extends EventEmitter {
   show () {
     if (this.toast && this.notifier) {
       // But first, we check if we get to show one
-      switch (this.notifier.setting) {
-        case 0:
-          // Everything is alright, let's show it
-          this.notifier.show(this.toast)
-          break
-        case 1:
-          // DisabledByManifest
-          this.emit('failed', new Error('Notifications are disabled by app manifest.'))
-          break
-        case 2:
-          // DisabledByGroupPolicy
-          this.emit('failed', new Error('Notifications are disabled by Windows group policy.'))
-          break
-        case 3:
-          // DisabledForUser
-          this.emit('failed', new Error('Notifications are disabled for this user (system-wide).'))
-          break
-        case 4:
-          // DisabledForApplication
-          this.emit('failed', new Error('Notifications are disabled for this app only (in Windows settings).'))
-          break
-        default:
-          this.notifier.show(this.toast)
+      if (this.checkSettings()) {
+        this.notifier.show(this.toast)
       }
     }
   }
@@ -105,6 +84,44 @@ class ToastNotification extends EventEmitter {
   hide () {
     if (this.toast && this.notifier) {
       this.notifier.hide(this.toast)
+    }
+  }
+
+  checkSettings () {
+    if (this.notifier) {
+      let setting = null
+
+      try {
+        setting = this.notifier.setting
+
+        switch (setting) {
+          case 0:
+            // Everything is alright, let's show it
+            return true
+          case 1:
+            // DisabledByManifest
+            this.emit('failed', new Error('Notifications are disabled by app manifest.'))
+            return false
+          case 2:
+            // DisabledByGroupPolicy
+            this.emit('failed', new Error('Notifications are disabled by Windows group policy.'))
+            return false
+          case 3:
+            // DisabledForUser
+            this.emit('failed', new Error('Notifications are disabled for this user (system-wide).'))
+            return false
+          case 4:
+            // DisabledForApplication
+            this.emit('failed', new Error('Notifications are disabled for this app only (in Windows settings).'))
+            return false
+          default:
+            return true
+        }
+      } catch (e) {
+        // We actually do not care here, let's just proceed
+
+        return true
+      }
     }
   }
 }
