@@ -8,7 +8,7 @@
   "main": "main.js",
   "description": "A sample electron app for the electron-windows-notifications module",
   "dependencies": {
-    "electron-windows-notifications": "1.1.0-beta.4"
+    "electron-windows-notifications": "1.1.13"
   },
   "license": "MIT",
   "repository": {
