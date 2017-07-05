@@ -23,7 +23,7 @@ function sendNotification(evt) {
       templateText: '<text>%s</text>',
       templateImage: '<image id="1" src="%s"/><text>This is a simple image toast notification example</text>'
     })
-	  strings = ['Hi from Electron', iconPath]
+	  strings = ['Hi from Electron', 'https://unsplash.it/64?image=883']
   } else if (evt.srcElement.id === 'actions') {
     template = new Template({
       templateText: '<text>%s</text>',
@@ -39,7 +39,7 @@ function sendNotification(evt) {
 		template: template.getXML(),
 		strings: strings
   })
-  
+
   // register to notification events
   notification.on('failed', () => textNode.text('Notification failed!'))
   notification.on('dismissed', () => textNode.text('Notification dismissed!'))
