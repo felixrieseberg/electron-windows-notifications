@@ -9,9 +9,9 @@
     "install": "https://workspace.ibm.com/downloads/darwin-x64-prod-v0.6.14/IBM-Watson-Workspace-0.6.14.dmg",
     "version": "0.6.14"
   },
-  "darwin-x64-dev": {
-    "update": "https://github.com/dawangdw/electron-windows-notifications/releases/download/darwin-x64-dev-v0.6.14/release.json",
-    "install": "https://github.com/dawangdw/electron-windows-notifications/releases/download/darwin-x64-dev-v0.6.14/IBM.Watson.Workspace-0.6.14.dmg",
+  "darwin-x64-dev2": {
+    "update": "https://github.com/dawangdw/electron-windows-notifications/releases/download/darwin-x64-dev2-v0.6.14/release.json",
+    "install": "https://github.com/dawangdw/electron-windows-notifications/releases/download/darwin-x64-dev2-v0.6.14/IBM.Watson.Workspace-0.6.14.dmg",
     "version": "0.6.14"
   }
 }
