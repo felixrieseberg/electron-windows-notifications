@@ -35,7 +35,13 @@ class ToastNotification extends EventEmitter {
 
     this.formattedXml = util.format(options.template, ...strings)
     let xmlDocument = new xml.XmlDocument()
-    xmlDocument.loadXml(this.formattedXml)
+
+    // Sometimes, loading broken XML can wreak havoc
+    try {
+      xmlDocument.loadXml(this.formattedXml)
+    } catch (error) {
+      throw new Error(`ToastNotification: XML creation error: ${error}`)
+    }
 
     log(`Creating new toast notification`)
     log(this.formattedXml)

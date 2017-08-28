@@ -8,7 +8,7 @@ const {
 } = require('./utils')
 
 /**
- * A notification similar to the native Windows ToastNotification.
+ * A notification similar to the native Windows TileNotification.
  *
  * @class TileNotification
  */
@@ -32,7 +32,13 @@ class TileNotification {
 
     this.formattedXml = util.format(options.template, ...strings)
     let xmlDocument = new xml.XmlDocument()
-    xmlDocument.loadXml(this.formattedXml)
+
+    // Sometimes, loading broken XML can wreak havoc
+    try {
+      xmlDocument.loadXml(this.formattedXml)
+    } catch (error) {
+      throw new Error(`TileNotification: XML creation error: ${error}`)
+    }
 
     log(`Creating new tile notification`)
     log(this.formattedXml)
