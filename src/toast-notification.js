@@ -3,6 +3,7 @@ const notifications = require('@nodert-win10/windows.ui.notifications')
 const EventEmitter = require('events')
 const util = require('util')
 const xmlEscape = require('xml-escape')
+const sanitize = require('sanitize-xml-string').sanitize;
 
 const { getAppId, log, getIsCentennial } = require('./utils')
 
@@ -31,7 +32,7 @@ class ToastNotification extends EventEmitter {
     options.strings = options.strings || []
     options.appId = options.appId || getAppId()
 
-    let strings = options.strings.map(v => xmlEscape(v))
+    let strings = options.strings.map(v => xmlEscape(sanitize(v)))
 
     this.formattedXml = util.format(options.template, ...strings)
     let xmlDocument = new xml.XmlDocument()
