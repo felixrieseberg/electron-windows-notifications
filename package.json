@@ -36,10 +36,10 @@
     "xml-escape": "^1.1.0"
   },
   "optionalDependencies": {
-    "@nodert-win10/windows.applicationmodel": "^0.2.95",
-    "@nodert-win10/windows.data.xml.dom": "^0.2.95",
-    "@nodert-win10/windows.foundation": "^0.2.95",
-    "@nodert-win10/windows.ui.notifications": "^0.2.95",
-    "@nodert-win10/windows.ui.startscreen": "^0.2.95"
+    "@nodert-win10-au/windows.applicationmodel": "^0.2.96",
+    "@nodert-win10-au/windows.data.xml.dom": "^0.2.96",
+    "@nodert-win10-au/windows.foundation": "^0.2.96",
+    "@nodert-win10-au/windows.ui.notifications": "^0.2.96",
+    "@nodert-win10-au/windows.ui.startscreen": "^0.2.96"
   }
 }
