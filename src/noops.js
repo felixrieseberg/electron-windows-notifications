@@ -22,4 +22,11 @@ class NoopClass extends EventEmitter {
   static getXML () { return noop() }
 }
 
-module.exports = { noop, NoopClass }
+const noopObject = new Proxy({}, {
+  get: (target, name) => {
+    noop()
+    return undefined;
+  }
+})
+
+module.exports = { noop, NoopClass, noopObject }

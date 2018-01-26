@@ -1,5 +1,5 @@
 const { getIsWindows, getWindowsVersion, setLogger } = require('./utils')
-const { noop, NoopClass } = require('./noops')
+const { noop, NoopClass, noopObject } = require('./noops')
 const win = getIsWindows() ? getWindowsVersion() : null
 
 let _exports
@@ -14,6 +14,7 @@ let _exports
 // so we just export no-ops with console warnings.
 if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win === '8')) {
   _exports = {
+    ToastDismissalReason: noopObject,
     ToastNotification: NoopClass,
     TileNotification: NoopClass,
     SecondaryTile: NoopClass,
@@ -28,6 +29,7 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
   }
 } else {
   _exports = {
+    ToastDismissalReason: require('@nodert-win10-au/windows.ui.notifications').ToastDismissalReason,
     ToastNotification: require('./toast-notification'),
     TileNotification: require('./tile-notification'),
     SecondaryTile: require('./secondary-tile'),
