@@ -24,8 +24,7 @@ class NoopClass extends EventEmitter {
 
 const noopObject = new Proxy({}, {
   get: (target, name) => {
-    noop()
-    return undefined;
+    return noop()
   }
 })
 
