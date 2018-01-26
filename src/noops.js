@@ -23,7 +23,7 @@ class NoopClass extends EventEmitter {
 }
 
 const noopObject = new Proxy({}, {
-  get: (target, name) => {
+  get: () => {
     return noop()
   }
 })
