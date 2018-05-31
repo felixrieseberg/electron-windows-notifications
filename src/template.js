@@ -1,7 +1,7 @@
 const util = require('util')
 
 class Template {
-   /**
+  /**
    * Creates an instance of notification Template.
    *
    * @param {object} options
@@ -30,7 +30,7 @@ class Template {
     this.template = util.format(rootTemplate, options.templateText, options.templateImage, options.templateActions)
   }
 
-   /**
+  /**
    * Returns the template in raw string
    *
    * @memberOf Template

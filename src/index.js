@@ -25,7 +25,8 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
       setLogger: noop
     },
     Template: NoopClass,
-    setLogger: noop
+    setLogger: noop,
+    getToastNotifier: noop
   }
 } else {
   _exports = {
@@ -36,6 +37,7 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
     TileUpdater: require('./tile-updater'),
     history: require('./history'),
     Template: require('./template'),
+    getToastNotifier: require('./toast-notifier'),
     setLogger
   }
 }
