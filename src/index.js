@@ -37,7 +37,7 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
     TileUpdater: require('./tile-updater'),
     history: require('./history'),
     Template: require('./template'),
-    getToastNotifier: require('./toast-notifier'),
+    getToastNotifier: require('./get-toast-notifier'),
     setLogger
   }
 }
