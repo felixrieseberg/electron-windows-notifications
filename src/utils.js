@@ -45,7 +45,7 @@ const utils = {
   getAppId () {
     if (process.windowsStore) {
       try {
-        const appModel = require('@nodert-win10-au/windows.applicationmodel')
+        const appModel = require('@nodert-win10-cu/windows.applicationmodel')
 
         // This is a horrible and sad hack that hopefully won't be always neccessary
         const familyName = appModel.Package.current.id.familyName

@@ -30,7 +30,7 @@ if (process.platform !== 'win32' || !(win === '10.0' || win === '8.1' || win ===
   }
 } else {
   _exports = {
-    ToastDismissalReason: require('@nodert-win10-au/windows.ui.notifications').ToastDismissalReason,
+    ToastDismissalReason: require('@nodert-win10-cu/windows.ui.notifications').ToastDismissalReason,
     ToastNotification: require('./toast-notification'),
     TileNotification: require('./tile-notification'),
     SecondaryTile: require('./secondary-tile'),
