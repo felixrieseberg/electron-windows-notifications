@@ -34,7 +34,7 @@
     "@nodert-win10-cu/windows.foundation": "^0.3.1",
     "@nodert-win10-cu/windows.ui.notifications": "^0.3.1",
     "@nodert-win10-cu/windows.ui.startscreen": "^0.3.1",
-    "debug": "^2.5.1",
+    "debug": "^4.0.1",
     "is-electron-renderer": "^2.0.1",
     "sanitize-xml-string": "^1.1.0",
     "uuid": "^3.3.2",
