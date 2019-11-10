@@ -29,11 +29,11 @@
     "standard": "^12.0.1"
   },
   "dependencies": {
-    "@nodert-win10-cu/windows.applicationmodel": "^0.4.4",
-    "@nodert-win10-cu/windows.data.xml.dom": "^0.4.4",
-    "@nodert-win10-cu/windows.foundation": "^0.4.4",
-    "@nodert-win10-cu/windows.ui.notifications": "^0.4.4",
-    "@nodert-win10-cu/windows.ui.startscreen": "^0.4.4",
+    "@nodert-win10-au/windows.applicationmodel": "^0.4.4",
+    "@nodert-win10-au/windows.data.xml.dom": "^0.4.4",
+    "@nodert-win10-au/windows.foundation": "^0.4.4",
+    "@nodert-win10-au/windows.ui.notifications": "^0.4.4",
+    "@nodert-win10-au/windows.ui.startscreen": "^0.4.4",
     "debug": "^4.1.1",
     "is-electron-renderer": "^2.0.1",
     "sanitize-xml-string": "^1.1.0",
