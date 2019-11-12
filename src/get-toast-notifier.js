@@ -1,4 +1,4 @@
-const notifications = require('@nodert-win10-cu/windows.ui.notifications')
+const notifications = require('@nodert-win10-au/windows.ui.notifications')
 const { getIsCentennial } = require('./utils')
 
 let _notifier
