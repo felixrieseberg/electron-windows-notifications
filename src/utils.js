@@ -59,13 +59,12 @@ const utils = {
     }
 
     try {
-      const electron = require('electron')
       const isRenderer = require('is-electron-renderer')
 
       if (isRenderer) {
-        return electron.remote.getGlobal('appUserModelId')
+        return require('electron').remote.getGlobal('appUserModelId')
       } else {
-        return electron.getGlobal('appUserModelId')
+        return global.appUserModelId
       }
     } catch (e) {
       return null
