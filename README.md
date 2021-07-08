@@ -5,6 +5,8 @@ Create native Windows toast and tile notifications for Windows 8, 8.1, and 10 us
 npm install --save electron-windows-notifications
 ```
 
+From Electron v14 on, you'll have to require NodeRT modules in the `main` process. See https://github.com/NodeRT/NodeRT/issues/158 for details.
+
 ### Usage
 For more samples, check out the `samples` folder.
 
