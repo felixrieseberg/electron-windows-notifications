@@ -1,0 +1,17 @@
+{
+  "win32-x64-prod": {
+    "update": "https://workspace.ibm.com/downloads/win32-x64-prod-v0.6.14",
+    "install": "https://workspace.ibm.com/downloads/win32-x64-prod-v0.6.14/IBM-Watson-Workspace-Setup-0.6.14.exe",
+    "version": "0.6.14"
+  },
+  "darwin-x64-prod": {
+    "update": "https://workspace.ibm.com/downloads/darwin-x64-prod-v0.6.14/release.json",
+    "install": "https://workspace.ibm.com/downloads/darwin-x64-prod-v0.6.14/IBM-Watson-Workspace-0.6.14.dmg",
+    "version": "0.6.14"
+  },
+  "darwin-x64-dev2": {
+    "update": "https://github.com/dawangdw/electron-windows-notifications/releases/download/darwin-x64-dev2-v0.6.14/release.json",
+    "install": "https://github.com/dawangdw/electron-windows-notifications/releases/download/darwin-x64-dev2-v0.6.14/IBM.Watson.Workspace-0.6.14.dmg",
+    "version": "0.6.14"
+  }
+}
